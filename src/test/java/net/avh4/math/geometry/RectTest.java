@@ -1,6 +1,5 @@
 package net.avh4.math.geometry;
 
-import net.avh4.math.geometry.Rect;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -123,6 +122,12 @@ public class RectTest {
     @Test
     public void testResizeFromCenter() {
         assertThat(Rect.fromCenter(0, 0, 10, 10).resizeFromCenter(2, 2), is(Rect.fromCenter(0, 0, 2, 2)));
+    }
+
+    @Test
+    public void testClampHeight() {
+        assertThat(Rect.fromTopLeft(0, 0, 100, 100).clampHeight(50), is(Rect.fromTopLeft(0, 0, 100, 50)));
+        assertThat(Rect.fromTopLeft(10, 20, 100, 100).clampHeight(50), is(Rect.fromTopLeft(10, 20, 100, 50)));
     }
 
     private void assertAspectRatio(Rect source, double ratio, Rect result) {

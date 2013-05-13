@@ -183,4 +183,8 @@ public class Rect {
     public Rect resizeFromCenter(int newWidth, int newHeight) {
         return Rect.fromCenter(getMidX(), getMidY(), newWidth, newHeight);
     }
+
+    public Rect clampHeight(int height) {
+        return new Rect(minX, minY, width, height);
+    }
 }
