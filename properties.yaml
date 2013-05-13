@@ -1,6 +1,6 @@
 ---
-package : com.example
-project : my-project
+package : net.avh4.math
+project : geometry
 description : ~
-project_url : ~
-github_user : ~
+project_url : http://github.com/avh4/geometry
+github_user : avh4
