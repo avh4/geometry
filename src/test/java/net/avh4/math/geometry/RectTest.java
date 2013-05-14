@@ -126,8 +126,16 @@ public class RectTest {
 
     @Test
     public void testClampHeight() {
-        assertThat(Rect.fromTopLeft(0, 0, 100, 100).clampHeight(50), is(Rect.fromTopLeft(0, 0, 100, 50)));
-        assertThat(Rect.fromTopLeft(10, 20, 100, 100).clampHeight(50), is(Rect.fromTopLeft(10, 20, 100, 50)));
+        assertThat(Rect.fromTopLeft(0, 0, 100, 100).top(50), is(Rect.fromTopLeft(0, 0, 100, 50)));
+        assertThat(Rect.fromTopLeft(10, 20, 100, 100).top(50), is(Rect.fromTopLeft(10, 20, 100, 50)));
+    }
+
+    @Test
+    public void testSlice() {
+        assertThat(Rect.fromTopLeft(0, 0, 100, 200).left(10), is(Rect.fromTopLeft(0, 0, 10, 200)));
+        assertThat(Rect.fromTopLeft(0, 0, 100, 200).top(10), is(Rect.fromTopLeft(0, 0, 100, 10)));
+        assertThat(Rect.fromTopLeft(0, 0, 100, 200).right(10), is(Rect.fromTopLeft(90, 0, 10, 200)));
+        assertThat(Rect.fromTopLeft(0, 0, 100, 200).bottom(10), is(Rect.fromTopLeft(0, 190, 100, 10)));
     }
 
     private void assertAspectRatio(Rect source, double ratio, Rect result) {

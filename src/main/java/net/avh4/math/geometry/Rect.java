@@ -184,7 +184,19 @@ public class Rect {
         return Rect.fromCenter(getMidX(), getMidY(), newWidth, newHeight);
     }
 
-    public Rect clampHeight(int height) {
-        return new Rect(minX, minY, width, height);
+    public Rect left(double leftPixels) {
+        return new Rect(minX, minY, leftPixels, height);
+    }
+
+    public Rect top(double topPixels) {
+        return new Rect(minX, minY, width, topPixels);
+    }
+
+    public Rect right(double rightPixels) {
+        return new Rect(minX + width - rightPixels, minY, rightPixels, height);
+    }
+
+    public Rect bottom(double bottomPixels) {
+        return new Rect(minX, minY + height - bottomPixels, width, bottomPixels);
     }
 }
