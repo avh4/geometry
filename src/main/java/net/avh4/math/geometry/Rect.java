@@ -199,4 +199,12 @@ public class Rect {
     public Rect bottom(double bottomPixels) {
         return new Rect(minX, minY + height - bottomPixels, width, bottomPixels);
     }
+
+    public Rect translate(int dx, int dy) {
+        return new Rect(minX + dx, minY + dy, width, height);
+    }
+
+    public Rect scale(double xScale, double yScale) {
+        return new Rect(minX * xScale, minY * xScale, width * xScale, height * yScale);
+    }
 }

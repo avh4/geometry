@@ -138,6 +138,16 @@ public class RectTest {
         assertThat(Rect.fromTopLeft(0, 0, 100, 200).bottom(10), is(Rect.fromTopLeft(0, 190, 100, 10)));
     }
 
+    @Test
+    public void testTranslateXy() {
+        assertThat(Rect.ofSize(10, 20).translate(3, 4), is(Rect.fromTopLeft(3, 4, 10, 20)));
+    }
+
+    @Test
+    public void testScaleXy() {
+        assertThat(Rect.ofSize(100, 150).scale(5, 2), is(Rect.ofSize(500, 300)));
+    }
+
     private void assertAspectRatio(Rect source, double ratio, Rect result) {
         assertThat(result.getWidth() / result.getHeight(), closeTo(ratio, 0.0000001));
         assertThat(result.getWidth(), lessThanOrEqualTo(source.getWidth()));
