@@ -149,11 +149,11 @@ public class RectTest {
     }
 
     private void assertAspectRatio(Rect source, double ratio, Rect result) {
-        assertThat(result.getWidth() / result.getHeight(), closeTo(ratio, 0.0000001));
-        assertThat(result.getWidth(), lessThanOrEqualTo(source.getWidth()));
-        assertThat(result.getHeight(), lessThanOrEqualTo(source.getHeight()));
-        assertThat(result.getHeight() == source.getHeight() || result.getWidth() == source.getWidth(), is(true));
-        assertThat(result.getMidX(), is(subject.getMidX()));
-        assertThat(result.getMidY(), is(subject.getMidY()));
+        assertThat(result.width() / result.height(), closeTo(ratio, 0.0000001));
+        assertThat(result.width(), lessThanOrEqualTo(source.width()));
+        assertThat(result.height(), lessThanOrEqualTo(source.height()));
+        assertThat(result.height() == source.height() || result.width() == source.width(), is(true));
+        assertThat(result.midX(), is(subject.midX()));
+        assertThat(result.midY(), is(subject.midY()));
     }
 }

@@ -28,19 +28,19 @@ public class Rect {
         this.height = height;
     }
 
-    public double getMinX() {
+    public double minX() {
         return minX;
     }
 
-    public double getMinY() {
+    public double minY() {
         return minY;
     }
 
-    public double getWidth() {
+    public double width() {
         return width;
     }
 
-    public double getHeight() {
+    public double height() {
         return height;
     }
 
@@ -130,19 +130,19 @@ public class Rect {
         return new Rect(0, 0, width, height); // TODO
     }
 
-    public double getMidX() {
+    public double midX() {
         return minX + width / 2;
     }
 
-    public double getMidY() {
+    public double midY() {
         return minY + height / 2;
     }
 
     public Rect aspectRatio(double desiredWidth, double desiredHeight) {
         if (width / height < desiredWidth / desiredHeight) {
-            return Rect.fromCenter(getMidX(), getMidY(), width, width / desiredWidth * desiredHeight);
+            return Rect.fromCenter(midX(), midY(), width, width / desiredWidth * desiredHeight);
         } else {
-            return Rect.fromCenter(getMidX(), getMidY(), height / desiredHeight * desiredWidth, height);
+            return Rect.fromCenter(midX(), midY(), height / desiredHeight * desiredWidth, height);
         }
     }
 
@@ -181,7 +181,7 @@ public class Rect {
     }
 
     public Rect resizeFromCenter(int newWidth, int newHeight) {
-        return Rect.fromCenter(getMidX(), getMidY(), newWidth, newHeight);
+        return Rect.fromCenter(midX(), midY(), newWidth, newHeight);
     }
 
     public Rect left(double leftPixels) {
