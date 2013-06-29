@@ -10,6 +10,10 @@ public class Rect {
         return new Rect(centerX - width / 2, centerY - height / 2, width, height);
     }
 
+    public static Rect fromCenter(Point center, double width, double height) {
+        return fromCenter(center.x(), center.y(), width, height);
+    }
+
     public static Rect fromTopLeft(double minX, double minY, double width, double height) {
         return new Rect(minX, minY, width, height);
     }
@@ -218,5 +222,9 @@ public class Rect {
 
     public double toPercentX(double x) {
         return (x - minX) / width;
+    }
+
+    public static Rect unit() {
+        return new Rect(0, 0, 1, 1);
     }
 }
