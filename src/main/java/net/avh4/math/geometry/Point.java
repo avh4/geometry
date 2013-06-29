@@ -4,7 +4,7 @@ public class Point {
     private final double x;
     private final double y;
 
-    public Point(double x, double y) {
+    private Point(double x, double y) {
         this.x = x;
         this.y = y;
     }
@@ -55,5 +55,9 @@ public class Point {
         temp = Double.doubleToLongBits(y);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
+    }
+
+    public static Point at(double x, double y) {
+        return new Point(x, y);
     }
 }
