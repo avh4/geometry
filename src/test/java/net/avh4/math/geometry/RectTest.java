@@ -148,6 +148,26 @@ public class RectTest {
         assertThat(Rect.ofSize(100, 150).scale(5, 2), is(Rect.ofSize(500, 300)));
     }
 
+    @Test
+    public void testPercentX() {
+        assertThat(Rect.ofSize(1000, 0).percentX(0), is(0.0));
+        assertThat(Rect.ofSize(1000, 0).percentX(1), is(1000.0));
+        assertThat(Rect.ofSize(1000, 0).percentX(.5), is(500.0));
+        assertThat(Rect.fromTopLeft(100, 0, 1000, 0).percentX(0), is(100.0));
+        assertThat(Rect.fromTopLeft(100, 0, 1000, 0).percentX(.5), is(600.0));
+        assertThat(Rect.fromTopLeft(100, 0, 1000, 0).percentX(1), is(1100.0));
+    }
+
+    @Test
+    public void testToPercentX() {
+        assertThat(Rect.ofSize(1000, 0).toPercentX(0), is(0.0));
+        assertThat(Rect.ofSize(1000, 0).toPercentX(100), is(0.1));
+        assertThat(Rect.ofSize(1000, 0).toPercentX(1000), is(1.0));
+        assertThat(Rect.fromTopLeft(100, 0, 1000, 0).toPercentX(100), is(0.0));
+        assertThat(Rect.fromTopLeft(100, 0, 1000, 0).toPercentX(600), is(0.5));
+        assertThat(Rect.fromTopLeft(100, 0, 1000, 0).toPercentX(1100), is(1.0));
+    }
+
     private void assertAspectRatio(Rect source, double ratio, Rect result) {
         assertThat(result.width() / result.height(), closeTo(ratio, 0.0000001));
         assertThat(result.width(), lessThanOrEqualTo(source.width()));

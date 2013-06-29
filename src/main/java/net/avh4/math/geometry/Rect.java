@@ -180,7 +180,7 @@ public class Rect {
         return a + (b - a) * percent;
     }
 
-    public Rect resizeFromCenter(int newWidth, int newHeight) {
+    public Rect resizeFromCenter(double newWidth, double newHeight) {
         return Rect.fromCenter(midX(), midY(), newWidth, newHeight);
     }
 
@@ -206,5 +206,17 @@ public class Rect {
 
     public Rect scale(double xScale, double yScale) {
         return new Rect(minX * xScale, minY * xScale, width * xScale, height * yScale);
+    }
+
+    public double percentX(double percent) {
+        return minX + width * percent;
+    }
+
+    public boolean contains(Point point) {
+        return contains(point.x(), point.y());
+    }
+
+    public double toPercentX(double x) {
+        return (x - minX) / width;
     }
 }
