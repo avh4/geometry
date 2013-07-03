@@ -216,12 +216,20 @@ public class Rect {
         return minX + width * percent;
     }
 
+    public double percentY(double percent) {
+        return minY + height * percent;
+    }
+
     public boolean contains(Point point) {
         return contains(point.x(), point.y());
     }
 
     public double toPercentX(double x) {
         return (x - minX) / width;
+    }
+
+    public double toPercentY(double y) {
+        return (y - minY) / height;
     }
 
     public static Rect unit() {
