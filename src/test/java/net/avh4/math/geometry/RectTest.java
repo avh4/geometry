@@ -168,6 +168,13 @@ public class RectTest {
         assertThat(Rect.fromTopLeft(100, 0, 1000, 0).toPercentX(1100), is(1.0));
     }
 
+    @Test
+    public void testCenter() throws Exception {
+        assertThat(Rect.ofSize(800, 600).center(), is(Point.at(400, 300)));
+        assertThat(Rect.fromTopLeft(10, 10, 800, 600).center(), is(Point.at(410, 310)));
+        assertThat(Rect.fromCenter(20, 30, 100, 205).center(), is(Point.at(20, 30)));
+    }
+
     private void assertAspectRatio(Rect source, double ratio, Rect result) {
         assertThat(result.width() / result.height(), closeTo(ratio, 0.0000001));
         assertThat(result.width(), lessThanOrEqualTo(source.width()));

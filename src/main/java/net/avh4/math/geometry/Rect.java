@@ -235,4 +235,8 @@ public class Rect {
     public static Rect unit() {
         return new Rect(0, 0, 1, 1);
     }
+
+    public Point center() {
+        return Point.at(minX + width / 2, minY + height / 2);
+    }
 }
