@@ -239,4 +239,20 @@ public class Rect {
     public Point center() {
         return Point.at(minX + width / 2, minY + height / 2);
     }
+
+    public Rect leftPercent(double percent) {
+        return divide(0, 0, percent, 1);
+    }
+
+    public Rect rightPercent(double percent) {
+        return divide(1 - percent, 0, 1, 1);
+    }
+
+    public Rect topPercent(double percent) {
+        return divide(0, 0, 1, percent);
+    }
+
+    public Rect bottomPercent(double percent) {
+        return divide(0, 1 - percent, 1, 1);
+    }
 }
